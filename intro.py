@@ -35,11 +35,10 @@ print(type(wealth1))  #<class 'bool'>
 print(type(wealth3))  #<class 'NoneType'>
 
 
-print('')      
 # Example of f-string
 value = 'roman'
 txt = f'My name is {value}'
-print(txt)
+print('\n' + txt  )
 
 var = value*2
 output = (value + '2')*4  # Multiplying string by integer repeats the string

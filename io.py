@@ -2,7 +2,7 @@
 
 '''
 input() function is used to take input from user in Python.
-By default, input() function takes input as 
+By default, input() function takes input as string type.
 for other input types -- we use type casting functions like int(), float(), etc.
 
 # for string input

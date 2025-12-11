@@ -46,3 +46,10 @@ output = (value + '2')*4  # Multiplying string by integer repeats the string
 
 print(output)
 print(type(output))
+print(age**3)  
+
+
+# Python is an Implicit type Language
+x = 5       # x is of type int  
+print(type(x))
+x = "Hello" # x is now of type str

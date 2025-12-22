@@ -49,11 +49,11 @@ print(f'Ends with "ming.  ": {sample_str.endswith("ming.  ")}')    #Checks if st
 
 #Here is an example of string indexing and slicing:
 string_example = "PythonProgramming"
-print(string_example[0])        # First character
-print(string_example[-11])       # Last character   #Negative indexing
-print(string_example[0:6])     # First six characters
-print(string_example[2:6])
+print(string_example[0])        # First index character
+print(string_example[-11])      # Last index character   #Negative indexing
+print(string_example[0:6])      # First six characters
+print(string_example[2:6])      # Here 2 is inclusive and 6 is exclusive
 
 #Negative Indexing and Slicing
-print(string_example[-6:])    # Last six characters
+print(string_example[-6:])      # Last six characters
 print(string_example[-11:-5])

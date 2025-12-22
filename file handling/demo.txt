@@ -1,0 +1,2 @@
+w+ will overwrite all existing content in the file.
+The only benefit of using 'w+' is that we can also perform read() operation.

@@ -112,7 +112,7 @@ while True:
 
 
 # 6. WAP to repaetly ask user to enter a password until the correct password is entered. 
-# Print "Access Granted" when the correct password is entered.
+#    Print "Access Granted" when the correct password is entered.
 correct_password = "admin123"
 while True:
     password = input("Enter a password: ")
@@ -124,4 +124,69 @@ while True:
 
 
 
-# 7. 
+# 7. WAP that takes two numbers from the users. Keep taking the  numbers until the user enters both zeros
+#    print the smallest each time.
+while True:
+    num = []
+    for i in range(2):
+        while True:
+            try:
+                number = int(input(f'Enter the {i+1} number: '))
+                num.append(number)
+                break
+            except ValueError:
+                print("\nInvalid Input!\nEntered number should be Integer!\n")
+
+    if num[0] == num[1] == 0:
+        print("Both entered numbers are Zeros.")
+        break
+    elif num[0] > num[1]:
+        print(f'{num[0]} is greater than {num[1]}.\n')
+    elif num[1] > num[0]:
+        print(f"{num[1]} is greater than {num[0]}.\n")
+    else:
+        print("Both are Equal!\n")
+
+
+# 8. WAP that keeps asking the users to enter a number until 0 is entered.
+#    Print "Valid range" if 1 -- 100. else "Out of range"
+
+while True:
+    while True:
+        try:
+            num = int(input("Enter a number between 1 to 100: "))
+            break
+        except ValueError:
+            print("\nInvalid Type!\nEntered number should be an Integer.\n")
+    
+    if num == 0:
+        print("Entered number is Zero.")
+        print("Exiting...\n")
+        break
+    elif num <= 100 and num >= 1:
+        print("Valid Range!\n")
+    else:
+        print("Out of Range!\n")
+
+
+
+# 9. WAP using while loop that keeps asking the user to enter a number.
+#    If the user enters -- 0,  the program should exit the loop using break.
+#    If the users enters a negative number, the program should skip the current
+#    iteration using continue statement. Otherwise print the number.
+
+while True:
+    while True:
+        try:
+            num = int(input("Enter a number (Zero to exit): "))
+            break
+        except ValueError:
+            print("Invalid Input!\nEntered number should be an Integer.\n")
+    if num == 0:
+        print("Entered number is Zero.\nExiting the program...\n")
+    elif num < 0:
+        continue
+    else:
+        print(num, "\n")
+    
+

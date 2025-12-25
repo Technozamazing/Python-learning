@@ -34,3 +34,20 @@ else:
     print(f'Result: {result}')         # Only runs if no exception occurs in try block
 finally:
     print("Execution Completed.")      # Always runs regardless of exceptions    
+
+
+
+
+# eval function example with try-except:
+while True:
+    expression = input("Enter a mathematical expression to evaluate (or 'exit' to quit): ")
+    if expression.lower() == 'exit':
+        print("Exiting the program.")
+        break
+    try:
+        result = eval(expression)
+        # break     ---  doing this will exit the loop on first valid expression making else case useless
+    except ValueError:
+        print(f'Please enter a vaild number!')
+    else:
+        print(f'{result}')

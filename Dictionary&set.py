@@ -172,3 +172,24 @@ sub = {"python", "java", "javascript", "c", "python", "java"}
 print(f'Classrooms needed is {len(sub)}')
 
 
+data = [
+    {"name": "roman", "score": 80},
+    {"name": "madhav", "score": 88},
+    {"name": "sagar", "score": 78}]
+
+
+# List comprehension: 
+celcius = [0, 10, 20, 30, 40]
+farenhite = [(temp*9/5) + 32 for temp in celcius]
+print(farenhite)
+
+list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+square = [(temp**2) for temp in list if temp %2 == 1]
+print(square)
+
+
+# Dictionary Comprehension:
+name = ["Ram", "shyam", "hari"]
+
+name_dict = {n: len(n) for n in name}
+print(name_dict)

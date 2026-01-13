@@ -1,5 +1,5 @@
-# This is the beginning of this file
-# Its contains all the thing related to Python problems done during Campus Lecture.
+# # This is the beginning of this file
+# # Its contains all the thing related to Python problems done during Campus Lecture.
 
 
 
@@ -189,4 +189,164 @@ while True:
     else:
         print(num, "\n")
     
+
+
+
+
+
+
+
+
+
+
+# Lab 02:
+# Write a function calculate_bmi() that takes weight (kg) and height (m) as 
+# parameters, calculates BMI using formula: 
+# BMI = weight / (height²). 
+# Then, it returns 
+# BMI rounded to 2 decimal places. Include error handling for zero or negative inputs.
+def validate_input(height, weight):
+    if height < 0 and weight < 0:
+    
+        raise ValueError("Height and Weight cannot be negative!")
+    elif height < 0:
+        raise ValueError("Height cannot be negative!")
+    elif weight < 0:
+        raise ValueError("Weight cannot be negative!")
+    
+def cal_bmi(weight, height):
+    bmi = weight/(height**2)
+    return float(bmi)
+
+try:
+    height = int(input(f'Enter your height: '))
+    weight = int(input(f'Enter your weight: '))
+    validate_input(height, weight)
+    bmi = cal_bmi(weight, height)
+    print(f'Your BMI is {bmi:.2f}\n')
+except ValueError as e:
+    print(f'Error: {e}')
+except Exception as e:
+    print(f'An unexpected error occurred: {e}')
+
+# Conclusion of the problem:
+# We can define our own custom exception handling for the runtime error.
+
+
+
+
+# Create a function string_operations() that accepts a string as input and returns a 
+# tuple containing: the string in uppercase, the string in lowercase, the string with first 
+# letter capitalized, the string reversed. For eg. "Hello" → ("HELLO", "hello", "Hello", "olleH")
+def string_operations(string_in):
+    str_upper = string_in.upper()
+    str_lower = string_in.lower()
+    str_capital = string_in.capitalize()
+    str_reversed = string_in[::-1]
+    return (str_upper, str_lower, str_capital, str_reversed)
+
+input_string = input("Enter a string: ")
+result = string_operations(input_string)
+print(f'Resulting tuple: {result}') 
+
+# Conclusion:
+# We have created a function that performs multiple string operations and returns the results as a tuple.
+
+
+
+
+
+
+# Implement a function process_numbers() that accepts a "variable number of numeric arguments" 
+# using "*args"  -->  returns a dictionary with: 
+# 'sum': total of all numbers, 'average': mean of numbers, 'max': maximum value, 'min': minimum value.  
+def process_numbers(*args):
+    total = sum(args)
+    print(type(args))
+    average = total / len(args) if args else 0
+    maximum = max(args) if args else None
+    minimum = min(args) if args else None
+    return {
+        'sum': total,
+        'average': average,
+        'max': maximum,
+        'min': minimum
+    }
+
+numbers = [10, 20, 30, 40, 50]
+result = process_numbers(*numbers)  
+print(f'Processed numbers: {result}')
+
+# Conclusion:
+# From this program we have learned how to use *args to accept variable number of arguments in a function.
+
+
+
+
+# Write a function validate_email() that takes an email address as parameter, returns 
+# True if email is valid (contains '@' and '.', '@' not first/last), returns False otherwise. 
+# Use only string methods 
+def validate_email(email):
+    if "@" in email and "." in email:
+        at_index = email.index("@")
+        dot_index = email.rindex(".")
+        if at_index > 0 and dot_index > at_index + 1 and dot_index < len(email) - 1:
+            return True
+    return False
+
+email_input = input("Enter an email address: ")
+if validate_email(email_input):
+    print("Valid Email Address.")   
+else:
+    print("Invalid Email Address.")
+
+
+
+
+
+
+
+
+
+
+
+
+# Lab 03:
+# Given a list numbers = [5, 2, 8, 1, 9], write code to sort it in ascending order. 
+num = [5, 2, 8, 1, 9]
+num.sort()
+print(num)
+
+
+# Create a new list containing only even numbers from the list [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]. 
+Original = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even = []
+for num in Original:
+    if num % 2 == 0:
+        even.append(num)
+
+print(even)
+
+
+# from list comprehension:
+# new_list = [expression for item in iterable if condition]
+given = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+even = [num for num in given if num % 2 == 0]
+print(even)
+
+
+
+
+
+# Write a program that takes two lists of equal length and returns a new list where 
+# each element is the sum of the corresponding elements from the input lists, then 
+# extend this to handle lists of unequal length by padding the shorter list with zeros. 
+list1 = [1, 2, 3, 4]
+list2 = [5, 6, 7, 8]
+# add_list = [x + y for x, y in zip(list1, list2)]     -- List Comprehension of the bellow 
+add_list = []
+for num, elem in zip(list1, list2):
+    add_ls = num + elem
+    add_list.append(add_ls)
+print(add_list)
 

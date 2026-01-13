@@ -13,29 +13,29 @@
 # Example of broadcasting with scalars:
 import numpy as np
 
-# a = np.array([1, 2, 3])
-# b = 3.0
-# result = a + b
-# print(result)
-# # when an array and a scalar is operated, the scalar is stretched to match the 
-# # shape of the array
+a = np.array([1, 2, 3])
+b = 3.0
+result = a + b
+print(result)
+# when an array and a scalar is operated, the scalar is stretched to match the 
+# shape of the array
 
 
 
-# # Example of broadcasting with Arrays:
-# matrix1 = np.array([[1, 2, 3, 4], 
-#                     [5, 6, 7, 8], 
-#                     [9, 10, 11, 12], 
-#                     [13, 14, 15, 16]])
+# Example of broadcasting with Arrays:
+matrix1 = np.array([[1, 2, 3, 4], 
+                    [5, 6, 7, 8], 
+                    [9, 10, 11, 12], 
+                    [13, 14, 15, 16]])
 
-# matrix2 = np.array([1., 2., 3., 4.])
-# matrix_sum = matrix1 + matrix2
-# print(matrix_sum)
+matrix2 = np.array([1., 2., 3., 4.])
+matrix_sum = matrix1 + matrix2
+print(matrix_sum)
 
-# # here matrix1 is of shape 4x4 and matrix2 is of shape 1x4
-# # here row dimension is compatible as one of the dimension is 1
-# # also column dimension is compatible as both are same.
-# # matrix 2 will be stretched to match the shape of matrix1.
+# here matrix1 is of shape 4x4 and matrix2 is of shape 1x4
+# here row dimension is compatible as one of the dimension is 1
+# also column dimension is compatible as both are same.
+# matrix 2 will be stretched to match the shape of matrix1.
 
 
 

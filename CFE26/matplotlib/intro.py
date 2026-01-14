@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 
 
 # Parabola function plot:
-x = list(range(-1000, 1000))
+import numpy as np
+x = np.array(range(-1000, 1000))
 y = [x**2 for x in x]
 plt.plot(x, y)
 plt.xlabel('x axis')
@@ -15,7 +16,7 @@ plt.show()
 
 # Sine function plot:
 import numpy as np
-x = np.linspace(-2*np.pi, 2*np.pi, 1000)        # range = [-2π, 2π]  -- This range is divided into 10 equal parts.
+x = np.linspace(-2*np.pi, 2*np.pi, 1000)        # range = [-2π, 2π]  -- This range is divided into 1000 equal parts.
 y = np.sin(x)
 plt.plot(x, y)
 plt.xlabel('x axis')

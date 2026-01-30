@@ -1,0 +1,30 @@
+name: Python syntax check
+
+on: [push, pull_request]
+
+jobs:
+    syntax-check:
+        runs-on: ubuntu-latest
+        
+        steps:
+            # Jashari hamlai hamro normal machine ma repo clone garchham
+            # Teshari nai yo step lai "ubuntu-latest" ma yo repo clone gardinchha
+            - name: Checkout repository
+              uses: actions/checkout@v4
+            
+
+            # Yo step le Python environment setup garchha virtual machine ma  
+            - name: Set up Python
+              uses: actions/setup-python@v5
+              with:
+                python-version: '3.14'
+            
+            
+            
+            # Yo step le hamro Python files haru ko syntax check garchha
+            - name: Check Python Syntax
+              run: |
+                echo "Checking Python files..."
+                python -m compileall .
+                  
+                # Hamlai sabai .py files haru khojchham ra uniharu ko syntax check garchham

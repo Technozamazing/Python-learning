@@ -67,7 +67,7 @@ import numpy as np
 
 # Study Hours in a day:
 # Assuming I have promissed to study 5 hours bare minimum
-hours = { 'Day 1': 4, 'Day 2':5, 'Day 3':7, 'Day 4':1, 'Day 5':9, 'Day 6':16, 'Day 7':int(0.25)}           # Will not use default index or a seperate index, will use key as index.
+hours = { 'Day 1': 4, 'Day 2':5, 'Day 3':7, 'Day 4':1, 'Day 5':9, 'Day 6':16, 'Day 7':int(0.25)}           # Will not use default index or a seperate index, will use key(Days) as index.
 std_hrs = pd.Series(hours, name='Studied Hours')
 std_hrs.index.name = 'Days'
 print(std_hrs)

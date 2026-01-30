@@ -1,5 +1,5 @@
-# # This is the beginning of this file
-# # Its contains all the thing related to Python problems done during Campus Lecture.
+# This is the beginning of this file
+# Its contains all the thing related to Python problems done during Campus Lecture.
 
 
 
@@ -341,8 +341,8 @@ print(even)
 # Write a program that takes two lists of equal length and returns a new list where 
 # each element is the sum of the corresponding elements from the input lists, then 
 # extend this to handle lists of unequal length by padding the shorter list with zeros. 
-list1 = [1, 2, 3, 4]
-list2 = [5, 6, 7, 8]
+list1 = [1, 2, 3, 4, 9]
+list2 = [5, 6, 7, 8, 1, 1]
 # add_list = [x + y for x, y in zip(list1, list2)]     -- List Comprehension of the bellow 
 add_list = []
 for num, elem in zip(list1, list2):
@@ -350,3 +350,173 @@ for num, elem in zip(list1, list2):
     add_list.append(add_ls)
 print(add_list)
 
+
+
+# Extending the smaller list by 0s.
+list1 = [1, 3, 4, 6, 7]
+list2 = [3, 2, 5, 7, 4, 6, 7]
+if len(list1) > len(list2):
+    diff = len(list1) - len(list2)
+    for i in range(0, diff):
+        list2.append(0)
+if len(list2) > len(list1):
+    diff = len(list2) - len(list1)
+    for i in range(0, diff):
+        list1.append(0)
+add_list = [x + y for x, y in zip(list1, list2)]
+print(add_list)
+
+# zip:
+# The zip() function in Python combines elements from multiple iterables (like lists, tuples, strings) 
+# into tuples, pairing elements by their position. It stops when the shortest iterable is exhausted.
+
+
+
+
+
+# Dictionary Operation:
+
+# Create a dictionary representing a book with keys for title, author and year.
+book = {
+    'title': 'Karnali Blues',
+    'author': 'Buddhisagar',
+    'published_year': 2010
+}
+print(book)
+print(type(book))
+
+
+# write a code to add a new key-value pair  "price":200  to an existing dict.
+book["price"] = 200
+print(book)
+
+
+# create a dictionary that counts how many times each letters appears in the word "hello".
+word = 'Hello'
+letter_count = {}
+for ch in word:
+    letter_count[ch] = letter_count.get(ch, 0) + 1
+print(letter_count)
+
+# # letter_count = {ch: "hello".count(ch) for ch in set("hello")}
+
+# from collections import Counter         # Counter is a special dictionary. It counts how many times each element appears in a list.
+# letter_count = Counter('Hello')
+# print(letter_count)
+
+
+# Write a function called invert_dictionary that takes a dictionary and returns a new 
+# dictionary where keys and values are swapped, handling collisions by storing the 
+# original keys as a list of values for any duplicate values in the input.
+def invert_dictionary(d):
+    inverted = {}
+    
+    for key, value in d.items():
+        if value in inverted:
+            inverted[value].append(key)
+        else:
+            inverted[value] = [key]
+    
+    return inverted
+
+val = {
+    'a': 1,
+    'b': 2,
+    'c': 3,
+    'd': 1
+}
+print(invert_dictionary(val))
+
+
+#  Create a function named deep_merge that recursively merges two nested 
+# dictionaries, combining their contents such that if the same key exists in both, the 
+# values are merged recursively if they are dictionaries, otherwise the value from the 
+# second dictionary overwrites the first. 
+def deep_merge(dict1, dict2):
+    result = dict1.copy()  # avoid modifying the original dict1
+    
+    for key, value in dict2.items():
+        if (
+            key in result
+            and isinstance(result[key], dict)
+            and isinstance(value, dict)
+        ):
+            # Recursively merge nested dictionaries
+            result[key] = deep_merge(result[key], value)
+        else:
+            # Overwrite or add new key
+            result[key] = value
+    
+    return result
+d1 = {
+    "a": 1,
+    "b": {"x": 10, "y": 20},
+    "c": 3
+}
+
+d2 = {
+    "b": {"y": 99, "z": 30},
+    "c": 100,
+    "d": 4
+}
+print(deep_merge(d1, d2))
+
+
+
+
+# Comprehension:
+
+# use list comprehension to create a list of squares for numbers 1 through 5.
+num = list(range(1, 6))
+sqr = [x**2 for x in num]
+print(sqr)
+
+
+# use dict comprehension to create a dictionary where keys are numbers 1-3 and values are their doubles.
+double = {i:i*2 for i in range(1, 4)}
+print(double)
+
+
+# Use list comprehension to extract all vowels from the string "python programming".
+vow = [ch for ch in 'python programming' if ch in 'aeiou']
+print(vow)
+
+
+#  Write a function called calculate_statistics that accepts a list of numbers and 
+# returns a dictionary containing the mean, median, and mode of those numbers, 
+# ensuring you handle edge cases like empty lists or single-element lists. 
+from collections import Counter
+
+def calculate_statistics(numbers):
+    # Edge case: empty list
+    if not numbers:
+        return {"mean": None, "median": None, "mode": None}
+    
+    n = len(numbers)
+    sorted_nums = sorted(numbers)
+    
+    # Mean
+    mean = sum(numbers) / n
+    
+    # Median
+    if n % 2 == 1:
+        median = sorted_nums[n // 2]
+    else:
+        median = (sorted_nums[n // 2 - 1] + sorted_nums[n // 2]) / 2
+    
+    # Mode
+    freq = Counter(numbers)
+    max_freq = max(freq.values())
+    modes = [k for k, v in freq.items() if v == max_freq]
+    
+    # If all values appear once, there is no mode
+    mode = modes[0] if max_freq > 1 else None
+    
+    return {
+        "mean": mean,
+        "median": median,
+        "mode": mode
+    }
+
+numbers = [1, 2, 3, 3, 3, 3, 4, 4, 5, 6, 2, 4, 1 , 6, 9, 9, 6, 5, 2, 4, 1, 0]
+print(calculate_statistics(numbers))

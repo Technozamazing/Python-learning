@@ -54,4 +54,6 @@ plt.plot([y_test.min(), y_test.max()],
 plt.xlabel("Actual Price")
 plt.ylabel("Predicted Price")
 plt.title("Actual vs Predicted House Prices")
+plt.grid(True)
 plt.show()
+# Visualization Outcome: Our model tends to follow "y=x" graph
